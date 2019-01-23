@@ -13,19 +13,33 @@ class Game extends Component {
   }
 
   startGame() {
-    const interval = setInterval(() => {
-      const loser = getLoser(this.state.whiteTime, this.state.blackTime);
-      if (loser) {
-        clearInterval(interval)
-        this.setState({
-          loser: loser
-        })
-      } else {
-        this.setState({
-          [`${this.state.turn}Time`]: this.state[`${this.state.turn}Time`] - 10,
-        })
-      }
-    }, 10)
+    this.startTimer(this.handleGameState.bind(this));
+  }
+
+  handleGameState() {
+    const loser = getLoser(this.state.whiteTime, this.state.blackTime);
+    if (loser) {
+      this.stopTimer();
+      this.setState({
+        loser: loser
+      })
+    } else {
+      this.setState({
+        [`${this.state.turn}Time`]: this.state[`${this.state.turn}Time`] - 10,
+      })
+    }
+  }
+
+  componentWillUnmount() {
+    this.stopTimer();
+  }
+
+  stopTimer() {
+    clearInterval(this.timer);
+  }
+
+  startTimer(timerFunc) {
+    this.timer = setInterval(timerFunc, 10);
   }
 
   changeColor (color) {
