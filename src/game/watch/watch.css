@@ -72,7 +72,7 @@
 }
 
 @media only screen and (max-width: 600px) {
-  .watch-black {
+  .watch-white {
     transform: rotate(180deg);
   }
 }
