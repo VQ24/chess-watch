@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
+import Button from './input-components/button/button';
+import Checkbox from './input-components/checkbox/checkbox';
 import './settings.css';
 
 class Settings extends Component {
@@ -7,21 +8,14 @@ class Settings extends Component {
   constructor (props) {
     super(props);
   }
-  
-  
-  render() {
-    const  Button = withRouter(({ history }) => (
-      <button
-        type='button'
-        onClick={() => { history.push('/game') }}
-      >
-        Start Game
-      </button>
-    ))
 
+  render() {
     return (
-      <div>
-        <Button />
+      <div className='settings-container'>
+        <Checkbox />
+        <Button
+          valid={true}
+        />
       </div>
     );
   }
