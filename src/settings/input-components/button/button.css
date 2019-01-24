@@ -11,7 +11,7 @@
   transition: all .5s;
 }
 
-.settings-button.button-valid:hover {
+.settings-button.button-active:hover {
   background-color: black;
   border-color: rgb(243, 220, 255);
   box-shadow: inset 0 0 1rem rgb(238, 206, 255), 0 0 2rem rgb(240, 237, 253), 0 0 .5rem rgb(249, 247, 255);
@@ -23,7 +23,7 @@
   animation-iteration-count: infinite;
 }
 
-.settings-button:not(.button-valid) {
+.settings-button:not(.button-active) {
   cursor: auto;
   outline: none;
 }
@@ -38,7 +38,7 @@
 }
 
 @media only screen and (max-width: 600px) {
-  .small-media-button.button-valid {
+  .small-media-button.button-active {
     background-color: black;
     border-color: rgb(243, 220, 255);
     box-shadow: inset 0 0 1rem rgb(238, 206, 255), 0 0 2rem rgb(240, 237, 253), 0 0 .5rem rgb(249, 247, 255);

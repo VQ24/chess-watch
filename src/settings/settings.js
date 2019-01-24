@@ -12,9 +12,32 @@ class Settings extends Component {
   render() {
     return (
       <div className='settings-container'>
-        <Checkbox />
+        <Checkbox
+          label='checked active'
+          checked={true}
+          active={true}
+          onClick={()=>{}}
+        />
+        <Checkbox
+          label='checked inactive'
+          checked={true}
+          active={false}
+          onClick={()=>{}}
+        />
+        <Checkbox
+          label='unchecked active'
+          checked={false}
+          active={true}
+          onClick={()=>{}}
+        />
+        <Checkbox
+          label='unchecked inactive'
+          checked={false}
+          active={false}
+          onClick={()=>{}}
+        />
         <Button
-          valid={true}
+          active={true}
         />
       </div>
     );

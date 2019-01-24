@@ -5,14 +5,14 @@ import './button.css';
 class Button extends Component {
 
   handleClick (history) {
-    if (this.props.valid) {
+    if (this.props.active) {
       history.push('/game')
     }
   }
 
   render() {
     const Button = withRouter(({ history }) => (
-      <button className={`settings-button small-media-button ${this.props.valid ? 'button-valid' : ''}`}
+      <button className={`settings-button small-media-button ${this.props.active ? 'button-active' : ''}`}
         type='button'
         onClick={this.handleClick.bind(this, history)}
       >
