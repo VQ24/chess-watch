@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Button from './input-components/button/button';
 import Checkbox from './input-components/checkbox/checkbox';
+import Input from './input-components/input/input';
 import './settings.css';
 
 class Settings extends Component {
@@ -12,6 +13,16 @@ class Settings extends Component {
   render() {
     return (
       <div className='settings-container'>
+        <Input
+          label='Input active'
+          active={true}
+          onChange={()=>{}}
+        />
+        <Input
+          label='Input inactive'
+          active={false}
+          onChange={()=>{}}
+        />
         <Checkbox
           label='checked active'
           checked={true}
