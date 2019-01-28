@@ -21,7 +21,7 @@ class Checkbox extends Component {
 
   render() {
     return (
-      <div className='settings-checkbox-wrapper'>
+      <div className={`settings-checkbox-wrapper ${this.props.fullWidth ? 'wrapper-full-width' : ''}`}>
         <span className={`settings-checkbox-input ${this.state.checked ? 'checkbox-checked' : ''} ${this.props.active ? 'checkbox-active' : ''}`}
           onClick={this.handleCheckBoxClick}
         >  

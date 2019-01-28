@@ -4,6 +4,10 @@
   align-items: center;
 }
 
+.settings-input-wrapper.wrapper-full-width {
+  justify-content: space-between;
+}
+
 .settings-input {
   border-radius: .2rem;
   padding: .2rem;
@@ -39,9 +43,15 @@
   box-shadow: 0 0 .5rem rgb(249, 247, 255), inset 0 0 .7rem rgb(195, 92, 255), 0 0 1rem rgb(156, 134, 255);
 }
 
-.settings-input-label {
+.settings-input-label.right-label {
   user-select: none;
   margin-left: .5rem;
+  font-size: 1.2rem;
+}
+
+.settings-input-label.left-label {
+  user-select: none;
+  margin-right: .5rem;
   font-size: 1.2rem;
 }
 

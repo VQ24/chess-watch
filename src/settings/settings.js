@@ -13,42 +13,47 @@ class Settings extends Component {
   render() {
     return (
       <div className='settings-container'>
-        <Input
-          label='Input active'
-          active={true}
-          onChange={()=>{}}
-        />
-        <Input
-          label='Input inactive'
-          active={false}
-          initialValue="test val"
-          style={{width: 10 + 'rem'}}
-          onChange={()=>{}}
-        />
-        <Checkbox
-          label='checked active'
-          checked={true}
-          active={true}
-          onClick={()=>{}}
-        />
-        <Checkbox
-          label='checked inactive'
-          checked={true}
-          active={false}
-          onClick={()=>{}}
-        />
-        <Checkbox
-          label='unchecked active'
-          checked={false}
-          active={true}
-          onClick={()=>{}}
-        />
-        <Checkbox
-          label='unchecked inactive'
-          checked={false}
-          active={false}
-          onClick={()=>{}}
-        />
+        <h1 className='margin-bottom-md'>Game settings</h1>
+        <div className='settings-group margin-bottom-md settings-full-width'>
+          <Input
+            label='Game time'
+            active={true}
+            onChange={()=>{}}
+          />
+          <Input
+            label='Input inactive'
+            active={false}
+            initialValue="test val"
+            style={{width: 10 + 'rem'}}
+            onChange={()=>{}}
+          />
+          <Checkbox
+            label='checked active'
+            checked={true}
+            active={true}
+            onClick={()=>{}}
+          />
+        </div>
+        <div className='settings-group margin-bottom-lg settings-full-width'>
+          <Checkbox
+            label='checked inactive'
+            checked={true}
+            active={false}
+            onClick={()=>{}}
+          />
+          <Checkbox
+            label='unchecked active'
+            checked={false}
+            active={true}
+            onClick={()=>{}}
+          />
+          <Checkbox
+            label='unchecked inactive'
+            checked={false}
+            active={false}
+            onClick={()=>{}}
+          />
+        </div>
         <Button
           active={true}
         />

@@ -4,6 +4,10 @@
   align-items: center;
 }
 
+.settings-checkbox-wrapper.wrapper-full-width {
+  justify-content: space-between;
+}
+
 .settings-checkbox-input {
   background-color: #2e323d;
   color: #a7adbb;

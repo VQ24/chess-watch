@@ -25,7 +25,8 @@ class Input extends Component {
 
   render() {
     return (
-      <div className='settings-input-wrapper'>
+      <div className={`settings-input-wrapper ${this.props.fullWidth ? 'wrapper-full-width' : ''}`}>
+        {!this.props.labelAtRight ? <span className="settings-input-label left-label">{this.props.label}</span> : null}
         <input
           type="text"
           spellCheck="false"
@@ -36,7 +37,7 @@ class Input extends Component {
           onChange={this.handleInputChange}
           onKeyUp={this.handleKeypress}
         ></input>
-        <span className="settings-input-label">{this.props.label}</span>
+        {this.props.labelAtRight ? <span className="settings-input-label right-label">{this.props.label}</span> : null}
       </div>
     )
   }
