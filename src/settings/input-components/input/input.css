@@ -16,6 +16,7 @@
   width: 5rem;
   box-shadow: inset 0 0 0rem black, 0 0 0rem black, 0 0 0rem black;
   outline: none;
+  text-align: end;
   transition: all .5s;
 }
 
@@ -27,7 +28,7 @@
 
 .settings-input:not(.settings-input-active) {
   background-color: #2e323d;
-  color: #a7adbb;
+  color: black;
   cursor: auto;
   border: 1px solid black;
 }
