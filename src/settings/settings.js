@@ -21,6 +21,8 @@ class Settings extends Component {
         <Input
           label='Input inactive'
           active={false}
+          initialValue="test val"
+          style={{width: 10 + 'rem'}}
           onChange={()=>{}}
         />
         <Checkbox
