@@ -32,7 +32,8 @@ class App extends Component {
             /> ))}
           />
           <Route path="/game" render={() => <Game
-            gameTime={61}
+            gameTime={this.state.settings.gameTime}
+            turnLimit={this.state.settings.turnLimit}
           />} />
         </div>
       </Router>

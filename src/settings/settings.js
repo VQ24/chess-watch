@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Button from './input-components/button/button';
 import Checkbox from './input-components/checkbox/checkbox';
 import Input from './input-components/input/input';
+import { setingsAreValid, isStandartGameType } from '../utils/utils';
 import './settings.css';
 
 class Settings extends Component {
@@ -36,7 +37,7 @@ class Settings extends Component {
             label='Game time'
             initialValue={this.state.gameTime}
             fullWidth={true}
-            active={true}
+            active={isStandartGameType(this.state)}
             onChange={this.setGameTime}
           />
         </div>
@@ -76,7 +77,7 @@ class Settings extends Component {
           />
         </div>
         <Button
-          active={true}
+          active={setingsAreValid(this.state)}
           onClick={this.handleStartButtonClick}
         />
       </div>

@@ -26,3 +26,18 @@ export function timeStr (time) {
   const getStr = (t) => t < 10 ? `0${t}` : t;
   return `${showHours ? hours : ''} ${showHours ? ':' : ''} ${showMinutes ? getStr(minutes) : ''} ${showMinutes ? ':' : ''} ${getStr(seconds)} ${!showMinutes ? ':' : ''} ${!showMinutes ? getStr(deciSeconds) : ''}`
 } 
+
+export function setingsAreValid (settings) {
+  const validGameTime = isStandartGameType(settings) ? Number(settings.gameTime) > 0 : true;
+  const timePermoveIsEnabled = settings.turnLimit.enable;
+  const validTimePerMove = Number(settings.turnLimit.limitTime) > 0;
+  const timePerMoveIsLessThanGameTime = isStandartGameType(settings) ? Number(settings.turnLimit.limitTime) <= Number(settings.gameTime) : true;
+  return timePermoveIsEnabled
+    ? validGameTime && validTimePerMove && timePerMoveIsLessThanGameTime
+    : validGameTime;
+}
+
+export function isStandartGameType (settings) {
+  const onlyLimitedTimePerTurn = settings.turnLimit.enable && !settings.turnLimit.extractFromGameTime
+  return !onlyLimitedTimePerTurn;
+}
