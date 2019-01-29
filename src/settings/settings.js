@@ -2,21 +2,18 @@ import React, { Component } from 'react';
 import Button from './input-components/button/button';
 import Checkbox from './input-components/checkbox/checkbox';
 import Input from './input-components/input/input';
-import { DEFAULT_SETTINGS } from '../constants/settings';
 import './settings.css';
 
 class Settings extends Component {
 
   constructor (props) {
     super(props);
-    this.state = DEFAULT_SETTINGS;
+    this.state = this.props.settings;
   }
 
-  // enableTurnLimit = () => {
-  //   const limitOptions = Object.assign({}, this.state.turnLimit);
-  //   limitOptions.enable = !limitOptions.enable;
-  //   this.setState({turnLimit: limitOptions});
-  // }
+  handleStartButtonClick = () => {
+    this.props.onGameStart(this.state);
+  }
 
   setGameTime = (time) => {
     this.setState({
@@ -80,6 +77,7 @@ class Settings extends Component {
         </div>
         <Button
           active={true}
+          onClick={this.handleStartButtonClick}
         />
       </div>
     );
