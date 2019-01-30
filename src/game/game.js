@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Watch from './watch/watch';
-import { oppositeColor, getLoser } from '../utils/utils';
+import { oppositeColor, getLoser, getPercent } from '../utils/utils';
 import './game.css';
 
 class Game extends Component {
@@ -69,6 +69,7 @@ class Game extends Component {
             color={color}
             active={this.state.turn === color}
             time={this.state[`${color}Time`]}
+            percent={getPercent(this.state[`${color}Time`], this.props.gameTime * 1000)}
             loser={this.state.loser}
             onWatchClick={this.handleWatchClick}
           />

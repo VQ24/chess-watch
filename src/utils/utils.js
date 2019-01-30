@@ -41,3 +41,9 @@ export function isStandartGameType (settings) {
   const onlyLimitedTimePerTurn = settings.turnLimit.enable && !settings.turnLimit.extractFromGameTime
   return !onlyLimitedTimePerTurn;
 }
+
+export function getPercent(part, whole, fractionalPartLength = 0) {
+  const accuracyMultiplier = Math.pow(10, fractionalPartLength);
+  const percent = (part / whole) * 100;
+  return Math.round(percent * accuracyMultiplier) / accuracyMultiplier
+}

@@ -53,21 +53,6 @@
   color: #a7adbb;
 }
 
-
-
-.progress-ring {
-  
-}
-
-.progress-ring__circle {
-  transition: 0.35s stroke-dashoffset;
-  transform: rotate(-90deg);
-  transform-origin: 50% 50%;
-}
-
-
-
-
 @keyframes white-blinking {
   0% {
     box-shadow: inset 0 0 4rem rgb(193, 87, 255), 0 0 1rem rgb(205, 194, 255), 0 0 .5rem rgb(249, 247, 255);
