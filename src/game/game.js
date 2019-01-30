@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Watch from './watch/watch';
-import { oppositeColor, getLoser, getPercent } from '../utils/utils';
+import { oppositeColor, getLoser, getPercent, gameType } from '../utils/utils';
 import './game.css';
 
 class Game extends Component {
@@ -8,7 +8,10 @@ class Game extends Component {
     super(props);
     this.state = {
       whiteTime: this.props.gameTime * 1000,
-      blackTime: this.props.gameTime * 1000
+      blackTime: this.props.gameTime * 1000,
+      gameType: gameType(this.props.turnLimit),
+      whiteTurnTime: this.props.turnLimit.limitTime * 1000,
+      blackTurnTime: this.props.turnLimit.limitTime * 1000,
     }
   }
 
@@ -17,7 +20,7 @@ class Game extends Component {
   }
 
   handleGameState() {
-    const loser = getLoser(this.state.whiteTime, this.state.blackTime);
+    const loser = getLoser(this.state.gameType, this.state.whiteTime, this.state.blackTime, this.state.whiteTurnTime, this.state.blackTurnTime);
     if (loser) {
       this.stopTimer();
       this.setState({
@@ -26,6 +29,7 @@ class Game extends Component {
     } else {
       this.setState({
         [`${this.state.turn}Time`]: this.state[`${this.state.turn}Time`] - 10,
+        [`${this.state.turn}TurnTime`]: this.state[`${this.state.turn}TurnTime`] - 10,
       })
     }
   }
@@ -44,6 +48,7 @@ class Game extends Component {
 
   changeColor (color) {
     this.setState({
+      [`${color}TurnTime`]: this.props.turnLimit.limitTime * 1000,
       turn: oppositeColor(color)
     })
   }
@@ -69,7 +74,9 @@ class Game extends Component {
             color={color}
             active={this.state.turn === color}
             time={this.state[`${color}Time`]}
-            percent={getPercent(this.state[`${color}Time`], this.props.gameTime * 1000)}
+            gameType={this.state.gameType}
+            turnTime={this.state[`${color}TurnTime`]}
+            percent={getPercent(this.state[`${color}TurnTime`], this.props.turnLimit.limitTime * 1000, 1)}
             loser={this.state.loser}
             onWatchClick={this.handleWatchClick}
           />

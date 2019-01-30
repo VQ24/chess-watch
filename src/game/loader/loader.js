@@ -17,13 +17,14 @@ class Loader extends Component {
       <div className="watch-loader">
         <svg
           class="progress-ring"
-          width="120"
-          height="120"
+          width="100%"
+          height="100%"
+          viewBox="0 0 120 120"
           >
           <circle
             style={this.getStyle(this.props.percent)}
             class="progress-ring__circle"
-            stroke="white"
+            stroke={`hsl(${359 - this.props.percent}, 100%, 67%)`}
             stroke-width="6"
             fill="transparent"
             r="52"

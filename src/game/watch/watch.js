@@ -17,12 +17,16 @@ class Watch extends Component {
     return (
       <div className={`watch-container watch-element ${this.props.active ? 'watch-active' : ''} watch-${this.props.color}`}
         onClick={this.handleClick}>
-        <div className="watch-time">
-          {this.props.loser ? this.getloseMesssage() : timeStr(this.props.time)}
-        </div>
-        <Loader
-          percent={this.props.percent}
-        />
+        { this.props.gameType !== 'TURN_LIMIT'
+          ? <div className="watch-time">
+              {this.props.loser ? this.getloseMesssage() : timeStr(this.props.time)}
+            </div>
+          : null }
+        { this.props.gameType !== 'STANDART'
+          ? <Loader
+            percent={this.props.percent}
+          />
+          : null}
       </div>
     );
   }

@@ -7,12 +7,33 @@ export function oppositeColor(color) {
   }
 }
 
-export function getLoser (whiteTime, blackTime) {
-  if (whiteTime <= 0) {
-    return 'white'
-  }
-  if (blackTime <= 0) {
-    return 'black'
+export function getLoser (gameType, whiteTime, blackTime, whiteTurnTime, blackTurnTime) {
+  switch (gameType) {
+    case 'STANDART': {
+      if (whiteTime <= 0) {
+        return 'white'
+      }
+      if (blackTime <= 0) {
+        return 'black'
+      } break;
+    }
+    case 'STANDART_TURN_LIMIT': {
+      if (whiteTime <= 0 || whiteTurnTime <= 0) {
+        return 'white'
+      }
+      if (blackTime <= 0 || blackTurnTime <= 0) {
+        return 'black'
+      } break;
+    }
+    case 'TURN_LIMIT': {
+      if (whiteTurnTime <= 0) {
+        return 'white'
+      }
+      if (blackTurnTime <= 0) {
+        return 'black'
+      } break;
+    }
+    default: return;
   }
 }
 
@@ -46,4 +67,14 @@ export function getPercent(part, whole, fractionalPartLength = 0) {
   const accuracyMultiplier = Math.pow(10, fractionalPartLength);
   const percent = (part / whole) * 100;
   return Math.round(percent * accuracyMultiplier) / accuracyMultiplier
+}
+
+export function gameType(turnLimit) {
+  if (turnLimit.enable && turnLimit.extractFromGameTime) {
+    return 'STANDART_TURN_LIMIT';
+  }
+  if (turnLimit.enable && !turnLimit.extractFromGameTime) {
+    return 'TURN_LIMIT';
+  }
+  return 'STANDART';
 }
