@@ -31,10 +31,12 @@ class App extends Component {
               onGameStart={(settings) => this.startGame.call(this, history, settings)}
             /> ))}
           />
-          <Route path="/game" render={() => <Game
-            gameTime={this.state.settings.gameTime}
-            turnLimit={this.state.settings.turnLimit}
-          />} />
+          <Route path="/game" render={() => (
+            <Game
+              gameTime={this.state.settings.gameTime}
+              turnLimit={this.state.settings.turnLimit}
+            />
+          )} />
         </div>
       </Router>
     );

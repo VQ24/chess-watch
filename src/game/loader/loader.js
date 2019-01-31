@@ -33,14 +33,14 @@ class Loader extends Component {
               cy="60"
             />
             <text
-              // x="60"
-              // y="60"
-              x="50%" y="50%" alignmentBaseline="middle" textAnchor="middle"
+              x="50%"
+              y="50%"
+              alignmentBaseline="middle"
+              textAnchor="middle"
               className={`loader-text-${this.props.color}`}
             >
               {this.props.time}
             </text>
-
           </g>
         </svg>
       </div>
