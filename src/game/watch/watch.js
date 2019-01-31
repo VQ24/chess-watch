@@ -24,7 +24,9 @@ class Watch extends Component {
           : null }
         { this.props.gameType !== 'STANDART'
           ? <Loader
+            time={this.props.loser ? '' : timeStr(this.props.turnTime, true, false)}
             percent={this.props.percent}
+            color={this.props.color}
           />
           : null}
       </div>

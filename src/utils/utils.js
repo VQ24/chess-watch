@@ -37,7 +37,7 @@ export function getLoser (gameType, whiteTime, blackTime, whiteTurnTime, blackTu
   }
 }
 
-export function timeStr (time) {
+export function timeStr (time, allwaysShowMinutes = false, showDeciSeconds = true) {
   const hours = Math.trunc(time / (1000 * 60 * 60));
   const minutes = Math.trunc(time / (1000 * 60)) - (hours * 60);
   const seconds = Math.trunc(time / (1000)) - (minutes * 60) - (hours * 60 * 60);
@@ -45,7 +45,21 @@ export function timeStr (time) {
   const showHours = hours > 0;
   const showMinutes = hours > 0 || minutes > 0;
   const getStr = (t) => t < 10 ? `0${t}` : t;
-  return `${showHours ? hours : ''} ${showHours ? ':' : ''} ${showMinutes ? getStr(minutes) : ''} ${showMinutes ? ':' : ''} ${getStr(seconds)} ${!showMinutes ? ':' : ''} ${!showMinutes ? getStr(deciSeconds) : ''}`
+  return `${
+    showHours ? hours : ''
+  } ${
+    showHours ? ':' : ''
+  } ${
+    showMinutes || allwaysShowMinutes ? getStr(minutes) : ''
+  } ${
+    showMinutes || allwaysShowMinutes ? ':' : ''
+  } ${
+    getStr(seconds)
+  } ${
+    (!showMinutes && showDeciSeconds) ? ':' : ''
+  } ${
+    (!showMinutes && showDeciSeconds) ? getStr(deciSeconds) : ''
+  }`
 } 
 
 export function setingsAreValid (settings) {

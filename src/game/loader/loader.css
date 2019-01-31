@@ -1,15 +1,27 @@
 .watch-loader {
-  position: relative;
   height: calc(100% - 3rem);
 }
 
 .progress-ring {
-
+  height: 100%;
+  max-height: calc(100% - 1.5rem);
 }
 
-.progress-ring__circle {
-  transition: 0.01s all;
+.progress-ring-circle {
+  transition: 0.1s all;
   transition-timing-function: linear;
   transform: rotate(-90deg);
   transform-origin: 50% 50%;
+}
+
+.loader-text-white, .loader-text-black {
+  font-size: 1.2rem;
+}
+
+.loader-text-black {
+  fill: white;
+}
+
+.loader-text-white {
+  fill: black;
 }
