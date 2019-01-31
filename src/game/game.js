@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Watch from './watch/watch';
+import LoseScreen from './lose-screen/lose-screen';
 import { oppositeColor, getLoser, getPercent, gameType } from '../utils/utils';
 import './game.css';
 
@@ -66,6 +67,7 @@ class Game extends Component {
 
   render() {
     return (
+      
       <div className="game-container">
         {[ 'white', 'black'].map(color => {
           return (
@@ -81,7 +83,11 @@ class Game extends Component {
             onWatchClick={this.handleWatchClick}
           />
         )})}
+        {this.state.loser ? <LoseScreen
+          loser={this.state.loser}
+        /> : null}
       </div>
+
     );
   }
 }

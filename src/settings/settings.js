@@ -77,6 +77,7 @@ class Settings extends Component {
           />
         </div>
         <Button
+          label='Start Game'
           active={setingsAreValid(this.state)}
           onClick={this.handleStartButtonClick}
         />
