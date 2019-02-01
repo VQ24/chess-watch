@@ -47,10 +47,47 @@
 
 .settings-checkbox-label {
   user-select: none;
-  margin-left: .5rem;
   font-size: 1.2rem;
 }
 
 :not(.checkbox-active)+.settings-checkbox-label {
   color: #a7adbb;
+}
+
+.checkbox-switch-mode-background {
+  position: relative;
+  height: 1.7rem;
+  width: 3rem;
+}
+
+.checkbox-switch-mode-background:not(.switch-active) {
+  cursor: auto !important;
+}
+
+.checkbox-switch-mode-switch {
+  position: absolute;
+  top: .1rem;
+  height: 1.5rem;
+  width: 1.5rem;
+  border: 1px solid black;
+}
+
+.switch-active {
+  cursor: pointer !important;
+  background-color: #a7adbb;
+}
+
+.checkbox-switch-mode-switch.switch-active:hover {
+  border-color: rgb(243, 220, 255);
+  cursor: pointer;
+  background-color: white;
+  box-shadow:  0 0 .5rem rgb(249, 247, 255), inset 0 0 .7rem rgb(195, 92, 255), 0 0 1rem rgb(156, 134, 255);
+}
+
+.checkbox-switch-mode-switch.switch-checked {
+  left: 1.4rem;
+}
+
+.checkbox-switch-mode-switch:not(.switch-checked) {
+  left: .1rem;
 }

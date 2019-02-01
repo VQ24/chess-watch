@@ -82,23 +82,27 @@ class Game extends Component {
       <div className="game-container">
         {[ 'white', 'black'].map(color => {
           return (
-          <Watch
-            key={color}
-            color={color}
-            active={this.state.turn === color}
-            time={this.state[`${color}Time`]}
-            gameType={this.state.gameType}
-            turnTime={this.state[`${color}TurnTime`]}
-            percent={getPercent(this.state[`${color}TurnTime`], this.props.turnLimit.limitTime * 1000, 1)}
-            loser={this.state.loser}
-            onWatchClick={this.handleWatchClick}
-          />
-        )})}
-        {this.state.loser ? <LoseScreen
-          loser={this.state.loser}
-          onPlayAgain={this.playAgain}
-          onBackToMenu={this.backToSettings}
-        /> : null}
+            <Watch
+              key={color}
+              color={color}
+              active={this.state.turn === color}
+              time={this.state[`${color}Time`]}
+              gameType={this.state.gameType}
+              turnTime={this.state[`${color}TurnTime`]}
+              percent={getPercent(this.state[`${color}TurnTime`], this.props.turnLimit.limitTime * 1000, 1)}
+              loser={this.state.loser}
+              onWatchClick={this.handleWatchClick}
+            />
+          )})
+        }
+        {this.state.loser
+          ? <LoseScreen
+              loser={this.state.loser}
+              onPlayAgain={this.playAgain}
+              onBackToMenu={this.backToSettings}
+            />
+          : null
+        }
       </div>
     );
   }

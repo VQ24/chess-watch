@@ -64,13 +64,8 @@ class Settings extends Component {
         </div>
         <div className='settings-group settings-full-width'>
           <Checkbox
-            label='Light mode'
-            checked={false}
-            active={true}
-            onClick={()=>{}}
-          />
-          <Checkbox
             label='Use Russian language'
+            switchMode={true}
             checked={false}
             active={true}
             onClick={()=>{}}
