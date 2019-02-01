@@ -7,13 +7,25 @@ import './game.css';
 class Game extends Component {
   constructor (props) {
     super(props);
-    this.state = {
-      whiteTime: this.props.gameTime * 1000,
-      blackTime: this.props.gameTime * 1000,
-      gameType: gameType(this.props.turnLimit),
-      whiteTurnTime: this.props.turnLimit.limitTime * 1000,
-      blackTurnTime: this.props.turnLimit.limitTime * 1000,
-    }
+    this.state = this.initialState;
+  }
+
+  initialState = {
+    whiteTime: this.props.gameTime * 1000,
+    blackTime: this.props.gameTime * 1000,
+    gameType: gameType(this.props.turnLimit),
+    whiteTurnTime: this.props.turnLimit.limitTime * 1000,
+    blackTurnTime: this.props.turnLimit.limitTime * 1000,
+    loser: undefined,
+    turn: undefined,
+  }
+
+  playAgain = () => {
+    this.setState(this.initialState);
+  }
+
+  backToSettings = () => {
+    this.props.onBackToMenu();
   }
 
   startGame() {
@@ -67,7 +79,6 @@ class Game extends Component {
 
   render() {
     return (
-      
       <div className="game-container">
         {[ 'white', 'black'].map(color => {
           return (
@@ -85,9 +96,10 @@ class Game extends Component {
         )})}
         {this.state.loser ? <LoseScreen
           loser={this.state.loser}
+          onPlayAgain={this.playAgain}
+          onBackToMenu={this.backToSettings}
         /> : null}
       </div>
-
     );
   }
 }

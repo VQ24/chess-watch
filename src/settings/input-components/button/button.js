@@ -11,7 +11,7 @@ class Button extends Component {
 
   render() {
     return (
-      <button className={`settings-button small-media-button ${this.props.active ? 'button-active' : ''}`}
+      <button className={`settings-button small-media-button ${this.props.active ? 'button-active' : ''} ${this.props.transparent ? 'button-transparent' : ''}`}
         style={this.props.style ? this.props.style : {}}
         type='button'
         onClick={this.handleClick}

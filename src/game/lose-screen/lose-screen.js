@@ -6,11 +6,11 @@ import './lose-screen.css';
 class LoseScreen extends Component {
 
   handlePlayAgainButtonClick = () => {
-    console.log('again')
+    this.props.onPlayAgain();
   }
 
   handleBackButtonClick = () => {
-    console.log('back')
+    this.props.onBackToMenu();
   }
 
   render() {
@@ -21,6 +21,7 @@ class LoseScreen extends Component {
           <div className='margin-bottom-md'>
             <Button
               label='Play again'
+              transparent={true}
               style={{ 'minWidth': '15rem' }}
               active={true}
               onClick={this.handlePlayAgainButtonClick}
@@ -29,6 +30,7 @@ class LoseScreen extends Component {
           <div className='margin-bottom-md'>
             <Button
               label='Back to menu'
+              transparent={true}
               style={{ 'minWidth': '15rem' }}
               active={true}
               onClick={this.handleBackButtonClick}

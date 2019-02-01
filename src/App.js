@@ -21,6 +21,10 @@ class App extends Component {
     history.push('/game')
   }
 
+  backToMenu (history) {
+    history.push('/')
+  }
+
   render() {
     return (
       <Router>
@@ -31,12 +35,13 @@ class App extends Component {
               onGameStart={(settings) => this.startGame.call(this, history, settings)}
             /> ))}
           />
-          <Route path="/game" render={() => (
+          <Route path="/game" render={withRouter(({ history }) => (
             <Game
               gameTime={this.state.settings.gameTime}
               turnLimit={this.state.settings.turnLimit}
+              onBackToMenu={() => this.backToMenu.call(this, history)}
             />
-          )} />
+          ))} />
         </div>
       </Router>
     );
