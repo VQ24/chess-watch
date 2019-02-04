@@ -96,3 +96,7 @@ export function gameType(turnLimit) {
 export function capitalizeFirstLetter (str) {
   return `${str[0].toUpperCase()}${str.slice(1)}`
 }
+
+export function getLanguage (useEnglish) {
+   return useEnglish ? 'EN' : 'RU'
+ }

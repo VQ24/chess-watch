@@ -6,7 +6,6 @@ export const DEFAULT_SETTINGS = {
     extractFromGameTime: true,
   },
   options: {
-    mode: 'dark',
-    language: 'en',
+    useEnglish: true,
   }
 }
