@@ -64,7 +64,9 @@ class Settings extends Component {
         </div>
         <div className='settings-group settings-full-width'>
           <Checkbox
-            label='Use Russian language'
+            label='Language:'
+            innerLabelTrue='Russian'
+            innerLabelFalse='English'
             switchMode={true}
             checked={false}
             active={true}
